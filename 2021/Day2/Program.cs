@@ -8,18 +8,15 @@ void PartOne()
     foreach (var n in numbers)
     {
         var x = n.Split(' ');
-        if (x[0] == "forward")
-        {
-            horizontal += Int32.Parse(x[1]);
-        }
-        else if (x[0] == "down")
-        {
-            depth += Int32.Parse(x[1]);
-        }
-        else if (x[0] == "up")
-        {
-            depth -= Int32.Parse(x[1]);
-        }
+        var direction = x[0];
+        var amount = Int32.Parse(x[1]);
+
+        if (direction == "forward")
+            horizontal += amount;
+        else if (direction == "down")
+            depth += amount;
+        else if (direction == "up")
+            depth -= amount;
     }
 
     Console.WriteLine($"{horizontal} * {depth} = {horizontal * depth}");
@@ -34,19 +31,19 @@ void PartTwo()
     foreach (var n in numbers)
     {
         var x = n.Split(' ');
-        if (x[0] == "forward")
+        var direction = x[0];
+        var amount = Int32.Parse(x[1]);
+
+        if (direction == "forward")
         {
-            horizontal += Int32.Parse(x[1]);
-            depth += aim * Int32.Parse(x[1]);
+            horizontal += amount;
+            depth += aim * amount;
         }
-        else if (x[0] == "down")
-        {
-            aim += Int32.Parse(x[1]);
-        }
-        else if (x[0] == "up")
-        {
-            aim -= Int32.Parse(x[1]);
-        }
+        else if (direction == "down")
+            aim += amount;
+        else if (direction == "up")
+            aim -= amount;
+
     }
 
     Console.WriteLine($"{horizontal} * {depth} = {horizontal * depth}");
